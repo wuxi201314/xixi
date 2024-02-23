@@ -1,40 +1,40 @@
-name: IPTV All
-on:
-push:
-schedule:
-- name: daily_task
-description: Run task every day at 4:00 PM
-cron: "0 16 * * *"
-branches:
-- main
-jobs:
-build:
-runs-on: ubuntu-latest
-steps:
-- name: Checkout code
-uses: actions/checkout@v2
-- name: Set up Python
-uses: actions/setup-python@v2
-with:
-python-version: 3.x
-- name: Install dependencies
-run: pip install selenium requests
-- name: Install Chrome WebDriver
-run: |
-LATEST_CHROMEDRIVER_VERSION=120.0.6099.109
-curl -sS -o chromedriver_linux64.zip "https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/120.0.6099.109/linux64/chrome-headless-shell-linux64.zip"
-sudo unzip chromedriver_linux64.zip -d /usr/local/bin
+名字：IPTV All
+在：
+推：
+日程安排：
+-名字：daily_task
+描述：Run task every day at 4：00 PM
+时间单位："0 16 * * *"
+分支：
+-main
+工作：
+建设：
+连续运行：ubuntu-latest
+步伐：
+-名字：Checkout code
+使用：actions/checkout@v2
+-名字：Set up Python
+使用：actions/setup-python@v2
+随着：
+python版本：3.x
+-名字：Install dependencies
+奔跑：pip install selenium requests
+-名字：Install Chrome WebDriver
+奔跑：
+最新的CHROMEDRIVER版本=120.0.6099.109
+curl-sS-o chrome driver _ Linux 64 . zip“https://edge dl . me . gvt 1 . com/edge dl/chrome/chrome-for-testing/120 . 0 . 6099 . 109/Linux 64/chrome-headless-shell-Linux 64 . zip“
+sudo unzip chrome driver _ Linux 64 . zip-d/usr/local/bin
 rm chromedriver_linux64.zip
-- name: Set chromedriver path
-run: |
-sudo ln -sf /usr/local/bin/chrome-headless-shell-linux64/chrome-headless-shell /usr/local/bin/chromedriver
-sudo chmod +x /usr/local/bin/chromedriver
-- name: Run script
-run: python ${{ github.workspace }}/IPTV.py
-- name: 提交更改
-run: |
-git config --local user.email "你自己的github邮箱"
-git config --local user.name "你自己的github用户名"
-git add .
-git commit *.txt -m "Add generated file"
-git push -f
+-名字：设置chromedriver路径
+奔跑：
+sudo ln-SF/usr/local/bin/chrome-headless-shell-Linux 64/chrome-headless-shell/usr/local/bin/chrome driver
+sudo chmod+x/usr/local/bin/chrome driver
+-名字：运行脚本
+奔跑：python ${{github.workspace}}/IPTV.py
+-name：提交更改
+奔跑：
+git配置-本地用户。电子邮件"805465364@qq.com"
+git配置-本地用户名"wuxi201314"
+去把它给我。
+git提交*。txt -m“添加生成的文件“
+去吧，push -f
