@@ -1,25 +1,25 @@
-名字：IPTV All
+名字:IPTV全部
 在：
 推：
 日程安排：
--名字:每日任务
-描述:每天下午4:00运行任务
+-名字：每日任务
+描述：每天下午4:00运行任务
 时间单位："0 16 * * *"
 分支：
--main
+-主要的
 工作：
 建设：
-连续运行：ubuntu-latest
+连续运行:Ubuntu-最新
 步伐：
--名字:结账代码
-使用:动作/签出@v2
--名字:设置Python
-使用:操作/设置-python@v2
+-名字：结账代码
+使用：动作/签出@v2
+-名字：设置计算机编程语言
+使用：操作/设置-python@v2
 随着：
 大蟒版本:3.x
--名字:安装依赖项
-奔跑:pip安装selenium请求
--名字:安装Chrome WebDriver
+-名字：安装依赖项
+奔跑:画中画安装硒请求
+-名字：安装Chrome网络驱动程序
 奔跑：
 最新的chrome驱动器版本=120.0.6099.109
 curl-sS-o chrome驱动程序。https://edge dl。我。gvt 1。com/edge dl/chrome/chrome-用于测试/120。0 .6099 .109/Linux 64/chrome无头外壳-Linux 64。zip "“https://edge dl . me . gvt 1 . com/edge dl/chrome/chrome-for-testing/120 . 0 . 6099 . 109/Linux 64/chrome-headless-shell-Linux 64 . zip“
