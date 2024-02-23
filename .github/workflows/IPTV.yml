@@ -1,25 +1,25 @@
-名字：IPTV All
+名字:IPTV全部
 在：
 推：
 分支：
 -主要的
 工作：
 建设：
-连续运行：Ubuntu-最新版
+连续运行:Ubuntu-最新版
 步伐：
 -名字：结账代码
 使用：动作/签出@v2
--名字：设置Python
+-名字：设置计算机编程语言
 使用：操作/设置-python@v2
 随着：
-python版本：3.x
+大蟒版本:3.x
 -名字：安装依赖项
-奔跑：pip安装selenium请求
--名字：安装Chrome WebDriver
+奔跑:画中画安装硒请求
+-名字：安装Chrome网络驱动程序
 奔跑：
-最新的CHROMEDRIVER版本=120.0.6099.109
-curl-sS-o chrome driver _ Linux 64 . zip“https://edge dl . me . gvt 1 . com/edge dl/chrome/chrome-for-testing/120 . 0 . 6099 . 109/Linux 64/chrome-headless-shell-Linux 64 . zip“
-sudo unzip chrome driver _ Linux 64 . zip-d/usr/local/bin
+最新的chrome驱动器版本=120.0.6099.109
+卷曲-sS-o铬驱动程序https://edge dl。我gvt 1。com/edge dl/chrome/chrome-用于测试/120。0 .6099 .109/Linux 64/chrome无头外壳-Linux 64版。zip "
+须藤解压铬驱动程序_ Linux 64。zip-d/usr/local/bin
 rm chromedriver_linux64.zip
 -名字：设置chrome驱动器路径
 奔跑：
@@ -29,8 +29,8 @@ sudo chmod+x/usr/local/bin/chrome
 奔跑:python ${{github.workspace}}/IPTV.py
 -名字：提交更改
 奔跑：
-饭桶配置-本地用户。电子邮件“805465364@qq.com“
-饭桶配置-本地用户名“无锡201314”
+饭桶配置-“805465364@qq.com“
+饭桶配置-“wuxi201314”
 饭桶添加。
 饭桶提交*。txt -m“添加生成的文件"
 饭桶推出
