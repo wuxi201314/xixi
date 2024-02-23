@@ -1,0 +1,40 @@
+名字：IPTV All
+在：
+推：
+日程安排：
+-名字:每日任务
+描述:每天下午4:00运行任务
+时间单位："0 16 * * *"
+分支：
+-main
+工作：
+建设：
+连续运行：ubuntu-latest
+步伐：
+-名字:结账代码
+使用:动作/签出@v2
+-名字:设置Python
+使用:操作/设置-python@v2
+随着：
+大蟒版本:3.x
+-名字:安装依赖项
+奔跑:pip安装selenium请求
+-名字:安装Chrome WebDriver
+奔跑：
+最新的chrome驱动器版本=120.0.6099.109
+curl-sS-o chrome驱动程序。https://edge dl。我。gvt 1。com/edge dl/chrome/chrome-用于测试/120。0 .6099 .109/Linux 64/chrome无头外壳-Linux 64。zip "“https://edge dl . me . gvt 1 . com/edge dl/chrome/chrome-for-testing/120 . 0 . 6099 . 109/Linux 64/chrome-headless-shell-Linux 64 . zip“
+sudo解压chrome驱动程序_ Linux 64。zip-d/usr/local/bin
+rm chromedriver_linux64.zip
+-名字：设置chrome驱动器路径
+奔跑：
+sudo ln-SF/usr/local/bin/chrome无头外壳Linux 64/chrome无头外壳/usr/local/bin/chrome驱动程序
+sudo chmod+x/usr/local/bin/chrome驱动程序
+运行脚本
+奔跑:python ${{github.workspace}}/IPTV.py
+-名字：提交更改
+奔跑：
+饭桶配置-本地用户。电子邮件"你自己的开源代码库邮箱"
+git配置-本地用户名"你自己的开源代码库用户名"
+去把它给我。
+饭桶提交*。txt -m“添加生成的文件"
+去吧，推掉
