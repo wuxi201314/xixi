@@ -1,34 +1,36 @@
-名字：名称：使用Conda的Python包
-
-在：[开：【推】]
-
+名字:IPTV全部
+在：
+推：
+分支：
+-主要的
 工作：
-构建-linux：
-连续运行：运行：Ubuntu-最新版
-战略：
-最大并行：5
-
+建设：
+连续运行:Ubuntu-最新版
 步伐：
--使用：-用途：actions/checkout@v3
--名字：-名称：设置Python 3.10
-使用：用途：操作/设置-python@v3
+-名字：结账代码
+使用：动作/签出@v2
+-名字：设置Python
+使用：操作/设置-python@v2
 随着：
-python版本：'3.10'
--名字：- name：将conda添加到系统路径
+大蟒版本:3.x
+-名字：安装依赖项
+奔跑:画中画安装硒请求
+安装Chrome网络驱动程序
 奔跑：
-# $CONDA是一个指向miniconda目录根目录的环境变量
-echo $ CONDA/bin》““$ GITHUB _ PATH
--名字：-名称：安装依赖项
+最新的chrome驱动器版本=120.0.6099.109
+curl-sS-o chrome驱动程序。https://edge dl。我。gvt 1。com/edge dl/chrome/chrome-用于测试/120。0 .6099 .109/Linux 64/chrome无头外壳-Linux 64。zip "
+sudo解压chrome驱动程序_ Linux 64。zip-d/usr/local/bin
+rm chromedriver_linux64.zip
+-名字：设置chrome驱动器路径
 奔跑：
-conda环境更新-文件environment.yml -名称库
--名字：带薄片的棉绒8
+sudo ln-SF/usr/local/bin/chrome无头外壳Linux 64/chrome无头外壳/usr/local/bin/chrome驱动程序
+sudo chmod+x/usr/local/bin/chrome驱动程序
+-名字：运行脚本
+奔跑:python ${{github.workspace}}/IPTV.py
+-名字：提交更改
 奔跑：
-康达安装片8
-        #如果存在Python语法错误或未定义的名称，则停止构建
-        flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
-        # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
-        flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
-    - name: Test with pytest
-      run: |
-        conda install pytest
-        pytest
+饭桶配置-本地用户。电子邮件"你自己的开源代码库邮箱"
+饭桶配置-本地用户名你自己的开源代码库用户名"
+饭桶添加。
+饭桶提交*。txt -m“添加生成的文件"
+饭桶推出
