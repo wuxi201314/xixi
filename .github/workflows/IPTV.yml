@@ -29,8 +29,8 @@ sudo chmod+x/usr/local/bin/chrome driver
 奔跑：python ${{github.workspace}}/IPTV.py
 -名字：提交更改
 奔跑：
-git配置-本地用户。电子邮件“你自己的开源代码库邮箱"
-git配置-本地用户名你自己的开源代码库用户名"
+git配置-本地用户。电子邮件“805465364@qq.com"
+git配置-本地用户名"wuxi201314"
 git添加。
 git提交*。txt -m“添加生成的文件”
 git推出
