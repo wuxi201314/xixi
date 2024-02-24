@@ -1,0 +1,39 @@
+#此工作流将在创建版本时使用Twine上传Python包
+#有关更多信息，请参见:https://docs . github . com/en/actions/automating-build-and-tests/build-and-testing-python #发布到包注册表
+
+#此工作流程使用未经GitHub认证的操作。
+#它们由第三方提供并受
+#单独的服务条款、隐私政策和支持
+#文档。
+
+名字：名称:上传Python包
+
+on:
+  release:
+    types: [类型:【已发布】]
+
+permissions:
+  contents: 内容:阅读
+
+jobs:
+  deploy:
+
+    runs-on: 运行:Ubuntu-最新版
+
+步伐：
+    - uses: actions/checkout@v3
+    - name: Set up Python
+      uses: actions/setup-python@v3
+      with:
+        python-version: '3.x'
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install build
+    - name: Build package
+      run: python -m build
+    - name: Publish package
+      uses: pypa/gh-action-pypi-publish@27b31702a0e7fc50959f5ad993c78deac1bdfc29
+      with:
+        user: __token__
+        password: ${{ secrets.PYPI_API_TOKEN }}
