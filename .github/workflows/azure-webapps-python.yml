@@ -1,0 +1,86 @@
+#当提交被推送到您的默认分支时，此工作流将构建Python应用程序并将其推送到Azure Web应用程序。
+#
+#此工作流假设您已经创建了目标Azure App Service web app。
+#有关说明，请参见https://docs . Microsoft . com/en-us/azure/app-service/quick start-python？tabs = bash & pivots = python-framework-flask
+#
+#要配置此工作流:
+#
+# 1.下载Azure Web应用的发布配置文件。你可以从Azure门户网站的Web应用概述页面下载该文件。
+#了解更多信息:https://docs . Microsoft . com/en-us/azure/app-service/deploy-github-actions？tabs = applevel #生成-部署-凭据
+#
+# 2.在名为AZURE_WEBAPP_PUBLISH_PROFILE的存储库中创建一个机密，将发布配置文件内容粘贴为机密的值。
+#有关获取发布配置文件的说明，请参见:https://docs . Microsoft . com/azure/app-service/deploy-github-actions # configure-the-github-secret
+#
+# 3.更改AZURE_WEBAPP_NAME的值。或者，更改下面的PYTHON_VERSION环境变量。
+#
+#有关GitHub对Azure的操作的更多信息:https://github.com/Azure/Actions
+#有关Azure Web应用部署操作的更多信息:https://github.com/Azure/webapps-deploy
+#获取更多部署到Azure的GitHub动作工作流入门示例:https://github.com/Azure/actions-workflow-samples
+
+名字：名称:构建Python应用程序并将其部署到Azure Web应用程序
+
+env:
+  AZURE_WEBAPP_NAME: AZURE _ Web App _ NAME:your-App-NAME #将此设置为你的Azure Web应用的名称
+  PYTHON_VERSION: '3.8'              # set this to the Python version to use
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python version
+        uses: actions/setup-python@v3.0.0
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: 'pip'
+
+      - name: Create and start virtual environment
+        run: |
+          python -m venv venv
+          source venv/bin/activate
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
+
+      - name: Upload artifact for deployment jobs
+        uses: actions/upload-artifact@v3
+        with:
+          name: python-app
+          path: |
+            .
+            !venv/
+
+  deploy:
+    permissions:
+      contents: none
+    runs-on: ubuntu-latest
+    needs: build
+    environment:
+      name: 'Development'
+      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+
+    steps:
+      - name: Download artifact from build job
+        uses: actions/download-artifact@v3
+        with:
+          name: python-app
+          path: .
+
+      - name: 'Deploy to Azure Web App'
+        id: deploy-to-webapp
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: ${{ env.AZURE_WEBAPP_NAME }}
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
