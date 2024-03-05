@@ -31,8 +31,6 @@ jobs:
         
       - name: Run qita
         run: python ${{ github.workspace }}/qita.py
-        
-      - name: 提交更改
         run: |
           git config --local user.email "805465364@qq.com"
           git config --local user.name "wuxi201314"
